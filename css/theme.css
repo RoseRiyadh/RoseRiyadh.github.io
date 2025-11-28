@@ -1,0 +1,247 @@
+/*
+ * Theme Variables and Dark Mode Styles
+ * Provides accessible color schemes with proper contrast ratios
+ */
+
+:root {
+    /* Light theme colors (default) */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f9fa;
+    --bg-tertiary: #e9ecef;
+
+    --text-primary: #212529;
+    --text-secondary: #6c757d;
+    --text-muted: #868e96;
+
+    --brand-primary: #bd5d38;
+    --brand-primary-hover: #a54a2b;
+
+    --border-color: #dee2e6;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+
+    --link-color: #007bff;
+    --link-hover: #0056b3;
+
+    /* Social icons */
+    --social-bg: #495057;
+    --social-hover: #bd5d38;
+
+    /* Navigation */
+    --nav-bg: #bd5d38;
+    --nav-text: #ffffff;
+
+    /* Smooth transitions */
+    --transition-speed: 0.3s;
+}
+
+/* Dark theme colors */
+[data-theme="dark"] {
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2d2d2d;
+    --bg-tertiary: #404040;
+
+    --text-primary: #e9ecef;
+    --text-secondary: #adb5bd;
+    --text-muted: #868e96;
+
+    --brand-primary: #e67e50;
+    --brand-primary-hover: #ff8f5f;
+
+    --border-color: #495057;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+
+    --link-color: #4da3ff;
+    --link-hover: #66b3ff;
+
+    --social-bg: #6c757d;
+    --social-hover: #e67e50;
+
+    --nav-bg: #2d2d2d;
+    --nav-text: #e9ecef;
+}
+
+/* Apply theme colors to elements */
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition: background-color var(--transition-speed) ease,
+                color var(--transition-speed) ease;
+}
+
+.resume-section {
+    background-color: var(--bg-primary);
+    transition: background-color var(--transition-speed) ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-primary);
+    transition: color var(--transition-speed) ease;
+}
+
+.text-primary {
+    color: var(--brand-primary) !important;
+    transition: color var(--transition-speed) ease;
+}
+
+.subheading {
+    color: var(--text-secondary);
+    transition: color var(--transition-speed) ease;
+}
+
+p, li {
+    color: var(--text-primary);
+    transition: color var(--transition-speed) ease;
+}
+
+a {
+    color: var(--link-color);
+    transition: color var(--transition-speed) ease;
+}
+
+a:hover {
+    color: var(--link-hover);
+}
+
+/* Navigation styles */
+#sideNav {
+    background-color: var(--nav-bg) !important;
+    transition: background-color var(--transition-speed) ease;
+}
+
+#sideNav .navbar-nav .nav-link {
+    color: var(--nav-text) !important;
+    transition: color var(--transition-speed) ease;
+}
+
+#sideNav .navbar-nav .nav-link:hover {
+    color: var(--brand-primary-hover) !important;
+}
+
+[data-theme="dark"] #sideNav .navbar-nav .nav-link:hover {
+    color: var(--brand-primary) !important;
+}
+
+/* Social icons */
+.social-icon {
+    background-color: var(--social-bg);
+    transition: background-color var(--transition-speed) ease;
+}
+
+.social-icon:hover {
+    background-color: var(--social-hover);
+}
+
+/* Borders and separators */
+hr {
+    border-color: var(--border-color);
+    transition: border-color var(--transition-speed) ease;
+}
+
+/* Dev icons */
+.dev-icons li {
+    color: var(--text-primary);
+    transition: color var(--transition-speed) ease;
+}
+
+/* Theme toggle button */
+#theme-toggle {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    border: 2px solid var(--border-color);
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 6px var(--shadow-color);
+    transition: all var(--transition-speed) ease;
+    z-index: 1030;
+}
+
+#theme-toggle:hover {
+    background-color: var(--brand-primary);
+    color: #ffffff;
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px var(--shadow-color);
+}
+
+#theme-toggle:focus {
+    outline: 2px solid var(--brand-primary);
+    outline-offset: 2px;
+}
+
+#theme-toggle:active {
+    transform: scale(0.95);
+}
+
+/* Accessibility: Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    :root {
+        --text-primary: #000000;
+        --bg-primary: #ffffff;
+    }
+
+    [data-theme="dark"] {
+        --text-primary: #ffffff;
+        --bg-primary: #000000;
+    }
+}
+
+/* Dark theme specific adjustments */
+[data-theme="dark"] .img-profile {
+    border-color: var(--border-color);
+    box-shadow: 0 0 20px var(--shadow-color);
+}
+
+[data-theme="dark"] .list-inline-item img {
+    filter: brightness(0.9);
+}
+
+/* Ensure proper contrast for fa-ul lists */
+[data-theme="dark"] .fa-ul .fa-check {
+    color: var(--brand-primary);
+}
+
+/* Link states in dark mode */
+[data-theme="dark"] a:visited {
+    color: #9d7ff5;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    #theme-toggle {
+        bottom: 1rem;
+        right: 1rem;
+        width: 3rem;
+        height: 3rem;
+        font-size: 1.25rem;
+    }
+}
+
+/* Print styles - always use light theme */
+@media print {
+    [data-theme="dark"] {
+        --bg-primary: #ffffff;
+        --bg-secondary: #f8f9fa;
+        --text-primary: #212529;
+        --text-secondary: #6c757d;
+    }
+
+    #theme-toggle {
+        display: none;
+    }
+}
