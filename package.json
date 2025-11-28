@@ -1,0 +1,17 @@
+{
+  "name": "rose-riyadh-portfolio",
+  "version": "1.0.0",
+  "description": "Professional portfolio website for Rose Riyadh",
+  "main": "index.html",
+  "scripts": {
+    "build": "echo 'Static site - no build required'",
+    "dev": "echo 'Use a local server to view the site'"
+  },
+  "keywords": [
+    "portfolio",
+    "resume",
+    "dark-mode"
+  ],
+  "author": "Rose Riyadh",
+  "license": "MIT"
+}
